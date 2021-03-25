@@ -22,11 +22,10 @@ def save(lst):
 
 # 删除信息
 def delete(student_id):
+    student_old = []
     if os.path.exists(fileName):
         with open(fileName, 'r', encoding=encode) as file:
             student_old = file.readlines()
-    else:
-        student_old = []
     flag = False
     if student_old:
         with open(fileName, 'w', encoding=encode) as wfile:
@@ -60,17 +59,20 @@ def update():
             d = dict(eval(item))
             if d['id'] == student_id:
                 print('找到学生信息，可以修改他的相关信息')
-                try:
-                    d['name'] = input('请输入姓名：')
-                    d['english'] = int(input('请输入英语成绩：'))
-                    d['python'] = int(input('请输入Python成绩：'))
-                    d['java'] = int(input('请输入Java成绩：'))
-                except:
-                    print('您的输入有误请重新输入')
+                while True:
+                    try:
+                        d['name'] = input('请输入姓名：')
+                        d['english'] = int(input('请输入英语成绩：'))
+                        d['python'] = int(input('请输入Python成绩：'))
+                        d['java'] = int(input('请输入Java成绩：'))
+                    except:
+                        print('您的输入有误,请重新输入')
+                    else:
+                        break
                 wfile.write(str(d) + '\n')
                 print('修改成功！！！')
             else:
-                wfile.write(str(d)+'\n')
+                wfile.write(str(d) + '\n')
         answer = input('是否继续修改其他学生的信息y/n')
         if answer == 'y':
             update()

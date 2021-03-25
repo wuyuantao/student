@@ -3,10 +3,10 @@
 # @Author : wyt
 # @Description:学生信息管理系统
 # @File : StudentSys.py
-# 主函数
 import OperateFile
 
 
+# 主函数
 def main():
     while True:
         menu()
@@ -32,7 +32,7 @@ def main():
             elif choice == 6:
                 total()
             elif choice == 7:
-                show()
+                OperateFile.show()
 
 
 # 菜单函数
@@ -91,7 +91,7 @@ def delete():
             flag = OperateFile.delete(student_id)
             if not flag:
                 break
-            show()
+            OperateFile.show()
             answer = input('是否继续删除?y/n')
             if answer == 'y':
                 continue
@@ -107,9 +107,6 @@ def sort():
 # 统计
 def total():
     pass
-
-
-
 
 
 if __name__ == '__main__':
