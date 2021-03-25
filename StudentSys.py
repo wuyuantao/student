@@ -9,6 +9,7 @@ import OperateFile
 
 def main():
     while True:
+        menu()
         choice = int(input('请选择：'))
         if choice in [0, 1, 2, 3, 4, 5, 6, 7]:
             if choice == 0:
@@ -25,7 +26,7 @@ def main():
             elif choice == 3:
                 delete()
             elif choice == 4:
-                modify()
+                OperateFile.update()
             elif choice == 5:
                 sort()
             elif choice == 6:
@@ -98,11 +99,6 @@ def delete():
                 break
 
 
-# 修改
-def modify():
-    pass
-
-
 # 排序
 def sort():
     pass
@@ -113,9 +109,7 @@ def total():
     pass
 
 
-# 显示
-def show():
-    pass
+
 
 
 if __name__ == '__main__':
